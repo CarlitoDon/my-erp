@@ -1,27 +1,34 @@
-import Vue from 'vue';
-import Router from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 import UserList from './views/UserList.vue';
 import UserForm from './views/UserForm.vue';
+import AdminRegister from './views/AdminRegister.vue';
 
-Vue.use(Router);
+const routes = [
+  {
+    path: '/users',
+    name: 'UserList',
+    component: UserList,
+  },
+  {
+    path: '/users/new',
+    name: 'UserForm',
+    component: UserForm,
+  },
+  {
+    path: '/users/edit/:id',
+    name: 'UserEdit',
+    component: UserForm,
+  },
+  {
+    path: '/admin/register',
+    name: 'AdminRegister',
+    component: AdminRegister,
+  },
+];
 
-export default new Router({
-  mode: 'history',
-  routes: [
-    {
-      path: '/users',
-      name: 'UserList',
-      component: UserList,
-    },
-    {
-      path: '/users/new',
-      name: 'UserForm',
-      component: UserForm,
-    },
-    {
-      path: '/users/edit/:id',
-      name: 'UserEdit',
-      component: UserForm,
-    },
-  ],
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
 });
+
+export default router;
