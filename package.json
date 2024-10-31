@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "start": "node backend/server.js",
+    "frontend": "cd frontend && npm run serve"
+  }
+}
